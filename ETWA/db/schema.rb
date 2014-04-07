@@ -45,13 +45,6 @@ ActiveRecord::Schema.define(version: 20140406203359) do
     t.datetime "updated_at"
   end
 
-  create_table "question_in_attempts", force: true do |t|
-    t.integer  "question_id"
-    t.integer  "attempt_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "question_pools", force: true do |t|
     t.string   "difficulty"
     t.string   "content"
