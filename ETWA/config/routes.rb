@@ -22,6 +22,11 @@ ETWA::Application.routes.draw do
   get "startTest" => "front_end#startTest"
   get "front_end/index"
 
+  get 'register' => 'front_end#register'
+
+  get "front_end/index"
+  get "front_end/register"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

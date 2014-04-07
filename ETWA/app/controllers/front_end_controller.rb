@@ -2,6 +2,9 @@ class FrontEndController < ApplicationController
   def index
   end
 
+def register
+  end
+
    def newView
   	@info = "this is another view"
   end
