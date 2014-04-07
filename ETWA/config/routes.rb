@@ -1,5 +1,23 @@
 ETWA::Application.routes.draw do
 
+  resources :answer_pools
+
+  resources :question_pools
+
+  resources :labels
+
+  resources :answer_in_attempts
+
+  resources :timetables
+
+  resources :tests
+
+  resources :attempts
+
+  resources :users
+
+  resources :roles
+
   get "newView" => 'front_end#newView'
   get "startTest" => "front_end#startTest"
   get "front_end/index"

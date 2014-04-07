@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @answer_in_attempt.answer_id %>
+</p>
+
+<p>
+  <strong>Attempt:</strong>
+  <%= @answer_in_attempt.attempt_id %>
+</p>
+
+<p>
+  <strong>Chosen:</strong>
+  <%= @answer_in_attempt.chosen %>
+</p>
+
+<%= link_to 'Edit', edit_answer_in_attempt_path(@answer_in_attempt) %> |
+<%= link_to 'Back', answer_in_attempts_path %>

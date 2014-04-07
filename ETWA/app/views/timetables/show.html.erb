@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @timetable.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @timetable.end %>
+</p>
+
+<p>
+  <strong>Slots:</strong>
+  <%= @timetable.slots %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @timetable.location %>
+</p>
+
+<%= link_to 'Edit', edit_timetable_path(@timetable) %> |
+<%= link_to 'Back', timetables_path %>

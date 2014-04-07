@@ -1,0 +1,29 @@
+<%= form_for(@answer_in_attempt) do |f| %>
+  <% if @answer_in_attempt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@answer_in_attempt.errors.count, "error") %> prohibited this answer_in_attempt from being saved:</h2>
+
+      <ul>
+      <% @answer_in_attempt.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :answer_id %><br>
+    <%= f.number_field :answer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :attempt_id %><br>
+    <%= f.number_field :attempt_id %>
+  </div>
+  <div class="field">
+    <%= f.label :chosen %><br>
+    <%= f.check_box :chosen %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<%= form_for(@attempt) do |f| %>
+  <% if @attempt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attempt.errors.count, "error") %> prohibited this attempt from being saved:</h2>
+
+      <ul>
+      <% @attempt.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :registration_date %><br>
+    <%= f.datetime_select :registration_date %>
+  </div>
+  <div class="field">
+    <%= f.label :result %><br>
+    <%= f.number_field :result %>
+  </div>
+  <div class="field">
+    <%= f.label :start %><br>
+    <%= f.datetime_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :end %><br>
+    <%= f.datetime_select :end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

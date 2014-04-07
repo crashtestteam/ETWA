@@ -1,0 +1,29 @@
+<%= form_for(@question_pool) do |f| %>
+  <% if @question_pool.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question_pool.errors.count, "error") %> prohibited this question_pool from being saved:</h2>
+
+      <ul>
+      <% @question_pool.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :difficulty %><br>
+    <%= f.text_field :difficulty %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

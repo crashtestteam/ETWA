@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Difficulty:</strong>
+  <%= @question_pool.difficulty %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @question_pool.content %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @question_pool.status %>
+</p>
+
+<%= link_to 'Edit', edit_question_pool_path(@question_pool) %> |
+<%= link_to 'Back', question_pools_path %>
