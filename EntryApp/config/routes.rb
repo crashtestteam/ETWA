@@ -1,4 +1,16 @@
 EntryApp::Application.routes.draw do
+  resources :attempt_answers
+
+  resources :attempt_questions
+
+  resources :answers
+
+  resources :labels_questions
+
+  resources :questions
+
+  resources :labels
+
   resources :tests
 
   resources :timetables

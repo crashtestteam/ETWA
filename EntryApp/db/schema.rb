@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407161514) do
+ActiveRecord::Schema.define(version: 20140407170334) do
+
+  create_table "answers", force: true do |t|
+    t.string   "content"
+    t.integer  "points"
+    t.string   "status"
+    t.boolean  "correct"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attempt_answers", force: true do |t|
+    t.integer  "answer_id"
+    t.integer  "attempt_id"
+    t.boolean  "chosen"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attempt_questions", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "attempt_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "attempts", force: true do |t|
     t.datetime "registration_date"
@@ -20,6 +45,27 @@ ActiveRecord::Schema.define(version: 20140407161514) do
     t.datetime "end"
     t.integer  "timetable_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "labels", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "labels_questions", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "label_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", force: true do |t|
+    t.string   "difficulty"
+    t.string   "content"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
