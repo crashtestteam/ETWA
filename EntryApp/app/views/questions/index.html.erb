@@ -15,8 +15,9 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.difficulty %></td>
         <td><%= question.content %></td>
+        <td><%= question.difficulty %></td>
+        
         <td><%= question.status %></td>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
