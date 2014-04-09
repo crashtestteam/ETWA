@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
 
 def limited_access
-	redirect_to root_path if !current_user.admin? 
+	redirect_to root_path, :flash => { :error => "Insufficient rights!" } if !current_user.admin?
 end
 
 end

@@ -1,4 +1,5 @@
 class AttemptsController < ApplicationController
+  before_filter :limited_access, only: [:show]
   before_action :set_attempt, only: [:show, :edit, :update, :destroy]
 
   # GET /attempts
