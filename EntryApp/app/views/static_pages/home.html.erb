@@ -2,8 +2,8 @@
 <h1>Control Panel</h1>
 <% provide(:title, 'Control Panel') %>
 <div class="center hero-unit">
-  <%= link_to "View Profile", current_user, class: "btn btn-large btn-primary" %>
-<%= link_to "Register for Attempt", attempts_path, class: "btn btn-large btn-primary" %>
+  <%= button_to "View Profile", current_user, :class => "btn btn-large btn-primary", :method => :get %>
+<%= button_to "Register for attempt", attempts_path, :class => "btn btn-large btn-primary", :method => :get %>
 </div>
 <% else %>
 <% provide(:title, 'Home') %>
