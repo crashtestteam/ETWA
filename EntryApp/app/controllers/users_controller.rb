@@ -23,17 +23,14 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  def create
+ def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      sign_in @user
+      flash[:success] = "Succesfully registered"
+      redirect_to @user
+    else
+      render 'new'
     end
   end
 
@@ -54,11 +51,8 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
+      sign_out
+    redirect_to root_url
   end
 
   private
@@ -69,6 +63,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :surname, :personal_id, :email, :phone_number, :city, :country, :gender, :address)
+      params.require(:user).permit(:name, :surname, :personal_id, :email, :phone_number, :city, :country, :password, :password_confirmation, :gender, :address)
     end
 end

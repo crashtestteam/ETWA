@@ -4,12 +4,19 @@
 	<title><%= full_title(yield(:title)) %></title>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%# javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<%= csrf_meta_tags %>
 	<%= render 'layouts/shim' %>
 </head>
 <body>
 	<%= render 'layouts/header' %>
 	<div class="container">
+		 <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 		<%= yield %>
 		<%= render 'layouts/footer' %>
 	</div>
