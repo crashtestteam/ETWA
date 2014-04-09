@@ -29,7 +29,7 @@ class TestsController < ApplicationController
     respond_to do |format|
       if @test.save
          # @test.id new test id 
-        @timetable = Timetable.create(timetable_params)
+        timetable_manage
 
         format.html { redirect_to @test, notice: 'Test was successfully created.' }
         format.json { render action: 'show', status: :created, location: @test }
@@ -60,7 +60,7 @@ class TestsController < ApplicationController
 # inset OR update timetable
   def timetable_manage
     # TODO add support for multiple timeslots
-    params[:timetable] = params[:timetable].merge(:test_id=> params[:id])
+    params[:timetable] = params[:timetable].merge(:test_id=> @test.id)
     logger.debug "IMPORTANT INFO HERE!"
     logger.debug params[:timetable]
     if params[:timetable][:id] then

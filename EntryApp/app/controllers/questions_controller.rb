@@ -28,6 +28,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
+        manage_answers # insert or update
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render action: 'show', status: :created, location: @question }
       else
@@ -40,8 +41,11 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
+   # logger.debug "IMPORTANT INFO COMING NEXT "
+   # logger.debug params[:answer]
     respond_to do |format|
       if @question.update(question_params)
+        manage_answers # insert or update
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
@@ -50,6 +54,21 @@ class QuestionsController < ApplicationController
       end
     end
   end
+
+def manage_answers
+    logger.debug "IMPORTANT INFO HERE!"
+    logger.debug params[:answer]
+    params[:answer].each do |ans|
+      ans= ans.merge(:question_id=> @question.id)
+      if ans[:id] then
+        #update
+        Answer.update(ans[:id], ans.permit(:content, :points, :status, :correct, :question_id))
+      else
+        #create
+        Answer.create(ans.permit(:content, :points, :status, :correct, :question_id))
+      end
+    end
+end
 
   # DELETE /questions/1
   # DELETE /questions/1.json

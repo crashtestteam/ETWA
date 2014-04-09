@@ -23,7 +23,29 @@
     <%= f.label :status %><br>
     <%= f.text_field :status %>
   </div>
+
+<fieldset>
+    <legend>answers</legend>
+    <%#  AT THE MOMENT THERE IS ONLY ONE TIMESLOT  %>
+    <% if @answers=@question.answers and !@question.answers.empty? then 
+          @answers.each do |answer|
+      %>
+      <!-- EDIT EXISTING TIMETABLE-->
+              <%= hidden_field_tag 'answer[][id]' ,answer.id  %>
+              <%# text_field(:answer, :content, :placeholder => "enter the answer", :value=>answer.content ) %>
+              <%= text_field_tag 'answer[][content]' , answer.content %>
+          <% end %>
+    <%else%>
+    <!-- CREATE NEW TIMETABLE -->
+       <%= text_field_tag 'answer[][content]'%>
+    <% end %>
+      
+
+  </fieldset>
+
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div> 
+
+
 <% end %>
