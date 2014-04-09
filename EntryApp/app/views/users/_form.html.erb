@@ -50,7 +50,7 @@
   </div>
   <div class="field">
     <%= f.label :role_id %><br>
-    <%= select_tag(:role_id, options_from_collection_for_select(Role.all, 'id', 'name')) %>
+    <%= f.select(:role_id, options_from_collection_for_select(Role.all, 'id', 'name')) %>
   </div>
 
 <div>

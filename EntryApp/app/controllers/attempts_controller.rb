@@ -25,7 +25,7 @@ class AttemptsController < ApplicationController
   # POST /attempts.json
   def create
     @attempt = Attempt.new(attempt_params)
-
+    
     respond_to do |format|
       if @attempt.save
         format.html { redirect_to @attempt, notice: 'Attempt was successfully created.' }
