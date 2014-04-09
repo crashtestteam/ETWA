@@ -17,8 +17,22 @@
   </div>
   <div class="field">
     <%= f.label :duration %><br>
-    <%= f.number_field :duration %>
+    <%= f.number_field :duration, :placeholder => "enter time in minutes" %>
   </div>
+  <fieldset>
+    <legend>Timetable</legend>
+    <%#  AT THE MOMENT THERE IS ONLY ONE TIMESLOT  %>
+    <% if @time=@test.timetables.first then %>
+      <!-- EDIT EXISTING TIMETABLE-->
+      <%= hidden_field(:timetable, :id, :value=>@time.id ) %>
+      <%= text_field(:timetable, :slots, :placeholder => "enter the number of places", :value=>@time.slots ) %>
+    <%else%>
+    <!-- CREATE NEW TIMETABLE -->
+      <%= text_field(:timetable, :slots, :placeholder => "enter the number of places" ) %>
+    <% end %>
+      
+
+  </fieldset>
   <div class="actions">
     <%= f.submit %>
   </div>

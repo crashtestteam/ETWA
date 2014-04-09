@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409095225) do
+ActiveRecord::Schema.define(version: 20140408084445) do
 
   create_table "answers", force: true do |t|
     t.string   "content"
@@ -107,10 +107,6 @@ ActiveRecord::Schema.define(version: 20140409095225) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password"
-    t.string   "remember_token"
-    t.string   "password_digest"
   end
 
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
-
-
+end
