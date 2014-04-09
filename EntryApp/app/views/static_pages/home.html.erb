@@ -1,3 +1,11 @@
+<% if signed_in? %>
+<h1>Control Panel</h1>
+<% provide(:title, 'Control Panel') %>
+<div class="center hero-unit">
+  <%= button_to "View Profile", current_user, :class => "btn btn-large btn-primary", :method => :get %>
+<%= button_to "Register for attempt", attempts_path, :class => "btn btn-large btn-primary", :method => :get %>
+</div>
+<% else %>
 <% provide(:title, 'Home') %>
 <div class="center hero-unit">
   <h1>Welcome to the Entry Test App</h1>
@@ -8,3 +16,4 @@
 
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 </div>
+<% end %>

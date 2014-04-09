@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_filter :limited_access
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions

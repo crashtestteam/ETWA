@@ -1,4 +1,5 @@
 class LabelsController < ApplicationController
+  before_filter :limited_access
   before_action :set_label, only: [:show, :edit, :update, :destroy]
 
   # GET /labels

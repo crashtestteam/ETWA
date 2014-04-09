@@ -10,32 +10,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :registration_date %><br>
-    <%= f.datetime_select :registration_date %>
-  </div>
-  <div class="field">
-    <%= f.label :result %><br>
-    <%= f.number_field :result %>
-  </div>
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
-  </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.datetime_select :end %>
-  </div>
+<div class="center hero-unit" >
   <div class="field">
     <%= f.label :timetable_id %><br>
-    <%= f.number_field :timetable_id %>
+    <%= f.select(:timetable_id, options_from_collection_for_select(Timetable.all, :id, :start)) %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+  <div>
+    <%= f.hidden_field :registation_date, :value => Time.now.utc %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit :class => 'btn btn-large btn-primary' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>

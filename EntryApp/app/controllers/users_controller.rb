@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :limited_access, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
- def create
+  def create
     @user = User.new(user_params)
     if @user.save
       sign_in @user
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-      sign_out
+    sign_out
     redirect_to root_url
   end
 
@@ -63,6 +64,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :surname, :personal_id, :email, :phone_number, :city, :country, :password, :password_confirmation, :gender, :address)
+      params.require(:user).permit(:name, :surname, :personal_id, :email, :phone_number, :city, :country, :password, :password_confirmation, :gender, :address, :role_id)
     end
-end
+
+
+  end

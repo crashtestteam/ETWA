@@ -1,4 +1,5 @@
 class TimetablesController < ApplicationController
+  before_filter :limited_access
   before_action :set_timetable, only: [:show, :edit, :update, :destroy]
 
   # GET /timetables

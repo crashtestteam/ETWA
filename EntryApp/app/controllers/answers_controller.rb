@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_filter :limited_access
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
   # GET /answers

@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+  before_filter :limited_access
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
   # GET /roles

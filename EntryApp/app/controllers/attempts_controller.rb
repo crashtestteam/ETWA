@@ -1,4 +1,5 @@
 class AttemptsController < ApplicationController
+  before_filter :limited_access, only: [:show]
   before_action :set_attempt, only: [:show, :edit, :update, :destroy]
 
   # GET /attempts
@@ -25,7 +26,7 @@ class AttemptsController < ApplicationController
   # POST /attempts.json
   def create
     @attempt = Attempt.new(attempt_params)
-
+    
     respond_to do |format|
       if @attempt.save
         format.html { redirect_to @attempt, notice: 'Attempt was successfully created.' }
