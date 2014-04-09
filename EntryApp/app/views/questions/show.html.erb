@@ -6,7 +6,11 @@
 <p> <strong>The difficulty of your question:</strong> 
 	<%= @question.difficulty %> </p>
 
-	<p> <strong>Label of your Question:</strong> <%= @label.name %> </p>
+	<p> <strong>Label of your Question:</strong> 
+	<!-- 	<% @question.labels_questions.each  do |labelq| %>
+			<%= labelq.labels_questions.id  %>
+			<% end %>  -->
+			</p>
 
 <p> <strong>Status:</strong> <%= @question.status %> </p>
 

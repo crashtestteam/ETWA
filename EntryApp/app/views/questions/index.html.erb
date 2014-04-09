@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Label</th>
       <th>Difficulty</th>
       <th>Content</th>
       <th>Status</th>
@@ -15,10 +16,16 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+          <td><% question.labels_questions.each do |labelq| %>
+      <span><%= labelq.label.name %></span> 
+      <% end %></td>
+
+         <td><%= question.content %></td>
         <td><%= question.content %></td>
         <td><%= question.difficulty %></td>
         
         <td><%= question.status %></td>
+
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
