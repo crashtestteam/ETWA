@@ -7,6 +7,8 @@ EntryApp::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'get'
+  match '/attempts', to: 'attempts#new', via: 'get'
+  match '/controlPanel', to: 'users#controlPanel', via: 'get'
 
   resources :attempt_answers
 
