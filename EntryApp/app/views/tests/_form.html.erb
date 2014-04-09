@@ -25,10 +25,17 @@
     <% if @time=@test.timetables.first then %>
       <!-- EDIT EXISTING TIMETABLE-->
       <%= hidden_field(:timetable, :id, :value=>@time.id ) %>
+      <%= datetime_field(:timetable, :start, :placeholder => "enter the start date and time", :value=>@time.start) %>
+      <%= datetime_field(:timetable, :end, :placeholder => "enter the end date and time", :value=>@time.end) %>
       <%= text_field(:timetable, :slots, :placeholder => "enter the number of places", :value=>@time.slots ) %>
+      <%= text_field(:timetable, :location, :placeholder => "enter the location", :value=>@time.location ) %>
     <%else%>
     <!-- CREATE NEW TIMETABLE -->
+      <%= datetime_field(:timetable, :start, :placeholder => "enter the start date and time" ) %>
+      <%= datetime_field(:timetable, :end, :placeholder => "enter the end date and time" ) %>
       <%= text_field(:timetable, :slots, :placeholder => "enter the number of places" ) %>
+      <%= text_field(:timetable, :location, :placeholder => "enter the location" ) %>
+
     <% end %>
       
 

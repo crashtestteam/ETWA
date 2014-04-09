@@ -11,19 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :difficulty %><br>
-    <%= f.text_field :difficulty %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
+ <p> Here you can suggest your question. </p> 
+ <%= f.label :content %><br>
+ <%= f.text_field :content %> 
+
+ <div class="field">
+ <%= f.label :difficulty %>
+ 
+ <%= f.select(:difficulty, options_for_select(["easy","medium","hard"])) %> 
+</div> 
+
+
+ <div class="field"> 
+  <%= f.label :label %>
+  <%= select_tag(:label_id ,options_from_collection_for_select(Label.all, :id, :name) )%> 
+</div>
+
+
+
+<fieldset>
+    <legend>answers</legend>
+    <%#  AT THE MOMENT THERE IS ONLY ONE TIMESLOT  %>
+    <% if @answers=@question.answers and !@question.answers.empty? then 
+          @answers.each do |answer|
+      %>
+      <!-- EDIT EXISTING TIMETABLE-->
+              <%= hidden_field_tag 'answer[][id]' ,answer.id  %>
+              <%# text_field(:answer, :content, :placeholder => "enter the answer", :value=>answer.content ) %>
+              <%= text_field_tag 'answer[][content]' , answer.content %>
+          <% end %>
+    <%else%>
+    <!-- CREATE NEW TIMETABLE -->
+       <%= text_field_tag 'answer[][content]'%>
+    <% end %>
+      
+
+  </fieldset>
+
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div> 
+
+
 <% end %>
