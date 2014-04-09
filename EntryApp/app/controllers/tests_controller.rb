@@ -28,11 +28,6 @@ class TestsController < ApplicationController
    logger.debug params[:timetable]
     respond_to do |format|
       if @test.save
-<<<<<<< HEAD
-         # @test.id new test id 
-=======
-         # make a new timetable
->>>>>>> e58c794e3d505b09b1828065d5930c1bd941e3b1
         timetable_manage
 
         format.html { redirect_to @test, notice: 'Test was successfully created.' }
