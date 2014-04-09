@@ -1,4 +1,11 @@
 EntryApp::Application.routes.draw do
+
+  root  'static_pages#home'
+  match '/', to: 'static_pages#home', via: 'get'
+  match '/help', to: 'static_pages#help', via: 'get'
+  match '/about', to: 'static_pages#about', via: 'get'
+  match '/signup', to: 'clients#new', via: 'get'
+
   resources :attempt_answers
 
   resources :attempt_questions
@@ -25,7 +32,7 @@ EntryApp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'tests#index'
+  #root 'tests#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
