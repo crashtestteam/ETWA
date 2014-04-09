@@ -25,10 +25,13 @@
     <% if @time=@test.timetables.first then %>
       <!-- EDIT EXISTING TIMETABLE-->
       <%= hidden_field(:timetable, :id, :value=>@time.id ) %>
+      <%= datetime_field(:timetable, :start, :value=>@time.start) %>
       <%= text_field(:timetable, :slots, :placeholder => "enter the number of places", :value=>@time.slots ) %>
     <%else%>
     <!-- CREATE NEW TIMETABLE -->
+      <%= datetime_field(:timetable, :start) %>
       <%= text_field(:timetable, :slots, :placeholder => "enter the number of places" ) %>
+
     <% end %>
       
 
